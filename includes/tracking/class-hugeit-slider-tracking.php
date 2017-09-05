@@ -55,7 +55,7 @@ class Hugeit_Slider_Tracking
         $screen = get_current_screen();
         $screen_id = $screen->id;
 
-        if(!in_array($screen_id, Hugeit_Slider()->admin->get_pages())) return;
+        if (!in_array($screen_id, Hugeit_Slider()->admin->get_pages())) return;
 
         if (!$this->can_opt_in()) return;
 
@@ -63,7 +63,7 @@ class Hugeit_Slider_Tracking
 
         $optin_url = $this->get_opt_in_url();
         $optout_url = $this->get_opt_out_url();
-        echo Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH.'/tracking/banner/show.php', compact('optin_url','optout_url'));
+        echo Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH . '/tracking/banner/show.php', compact('optin_url', 'optout_url'));
     }
 
     /**

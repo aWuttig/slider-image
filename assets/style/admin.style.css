@@ -7,7 +7,7 @@ a.probuttonlink {
     float: right;
     width: 35px;
     height: 28px;
-    padding: 0  0 0 20px;
+    padding: 0 0 0 20px;
     background: url(../images/admin/view.style.png) left center no-repeat;
 }
 
@@ -214,7 +214,7 @@ a span.hugeit-slider-remove-slider {
     outline: none;
     opacity: 0.5;
     border-radius: 3px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 a span.hugeit-slider-remove-slider:hover {
@@ -223,14 +223,14 @@ a span.hugeit-slider-remove-slider:hover {
 
 a span.hugeit-slider-duplicate-slider {
     background: url(../images/admin/fields.opt.png) left bottom no-repeat;
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	opacity: 0.5;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
 }
 
 a span.hugeit-slider-duplicate-slider:hover {
-   opacity: 1;
+    opacity: 1;
 }
 
 #post-body-heading h3 {
@@ -253,14 +253,17 @@ div.YT_settings, div.VM_settings {
 div.YT_settings:nth-child(1), div.VM_settings:nth-child(1) {
     left: 20px;
 }
+
 div.YT_settings:nth-child(2), div.VM_settings:nth-child(2) {
     top: -43px;
     left: 50%;
 }
+
 div.YT_settings:nth-child(3), div.VM_settings:nth-child(3) {
     top: -25px;
     left: 20px;
 }
+
 div.YT_settings:nth-child(4), div.VM_settings:nth-child(4) {
     top: -65px;
     left: 50%;
@@ -527,6 +530,7 @@ button.button-primary {
     position: relative;
     width: 50%;
 }
+
 #slider-options-list form .options-block {
     float: left;
 }
@@ -537,13 +541,16 @@ button.button-primary {
     height: 35px;
 }
 
-#slider-options-list form .options-block > div, #slider-options-list-free form .options-block > div {
+#slider-options-list form .options-block > div, #slider-options-list-free form .options-block > div,
+#slider-options-list form .options-block > div, #slider-options-list-free form .options-block > .partly_overlay > div {
     position: relative;
     padding: 10px 10px 5px 10px;
     clear: both;
 }
 
-#slider-options-list form .options-block > div.has-background, #slider-options-list-free form .options-block > div.has-background {
+#slider-options-list form .options-block > div.has-background,
+#slider-options-list-free form .options-block > div.has-background,
+#slider-options-list-free form .options-block > .partly_overlay > div.has-background {
     background: #f3f3f3;
 }
 
@@ -1118,24 +1125,29 @@ button.button-primary {
     display: none;
 }
 
-#hugeit_slider_add_post_popup_tabs label{
+#hugeit_slider_add_post_popup_tabs label {
     position: relative;
 }
+
 #hugeit_slider_add_post_popup_tabs label:nth-child(1) {
     top: 10px;
 }
+
 #hugeit_slider_add_post_popup_tabs label:nth-child(3) {
     left: 300px;
     top: -20px;
 }
+
 #hugeit_slider_add_post_popup_tabs label:nth-child(7) {
     left: 300px;
     top: -20px;
 }
+
 #hugeit_slider_add_post_popup_tabs label:nth-child(11) {
     left: 300px;
     top: -20px;
 }
+
 #hugeit_slider_add_post_popup_tabs > ul > li {
     display: inline;
     border: 1px solid #b0b0b0;
@@ -1204,25 +1216,42 @@ label.hugeit-slider-loading-icon-options {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    cursor: move;
+}
+
+#post-body .images-list-block .slider-cell:hover {
+    cursor: move;
+    background-image: url(../images/admin/dragable.gif);
+    background-position: right top;
+    background-repeat: repeat-y;
 }
 
 #post-body .images-list-block .slider-cell .image-block {
-    width: 15%;
-    min-height: 152px;
-    min-width: 150px;
-    margin-right: 20px;
-    max-width: 225px;
-    overflow: hidden;
+    /* width: 15%;
+     min-height: 152px;
+     min-width: 150px;
+     margin-right: 20px;
+     max-width: 225px;
+     overflow: hidden;*/
+    position: relative;
+    width: 20%;
+    padding: 0 0.5% 0 0.5%;
+    float: left;
+    height: 185px;
 }
 
 #post-body .images-list-block .slider-cell .image-block .centering {
+    /* width: 100%;
+     min-height: 120px;
+     vertical-align: middle;
+     text-align: center;
+     overflow: hidden;
+     display: flex;
+     align-items: center;*/
     width: 100%;
-    min-height: 120px;
-    vertical-align: middle;
-    text-align: center;
+    height: calc(100% - 30px);
     overflow: hidden;
-    display: flex;
-    align-items: center;
+    position: relative;
 }
 
 #post-body .images-list-block .slider-cell .image-block .edite-image {
@@ -1236,17 +1265,25 @@ label.hugeit-slider-loading-icon-options {
 
 #post-body .images-list-block .slider-cell .image-block img {
     max-width: 100%;
+    position: relative;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    left: 0px;
 }
+
 li[data-type*=video] .image-block img {
     top: 50%;
     transform: translateY(-50%);
     position: relative;
+
 }
 
 #post-body .images-list-block .slider-cell .slider-option {
-    width: 85%;
+    width: 80%;
     display: flex;
-    align-items: center;
+    align-items: end;
 }
 
 #post-body .images-list-block .slider-cell .slider-option table {
@@ -1335,7 +1372,7 @@ input.url_input, tr[data-site*=youtube] label {
     margin-top: 10px;
 }
 
-tr[data-site*=youtube] td:nth-child(2){
+tr[data-site*=youtube] td:nth-child(2) {
     left: -110px;
     top: 4px;
     position: relative;
@@ -1415,7 +1452,7 @@ tr[data-site*=youtube] td:nth-child(2){
 #post-body .images-list-block .slider-cell .slider-option table tr td label span:before {
     content: "";
     width: 18px;
-    height:13px;
+    height: 13px;
     display: block;
     position: absolute;
     background-image: url(../images/admin/check-mark.png);
@@ -1554,4 +1591,10 @@ div.image-block {
     z-index: 999;
     top: 9px;
     background: rgba(0, 0, 0, .2);
+}
+
+.edit-image a img {
+    width: 35px;
+    opacity: 0.5;
+    margin-left: 5px;
 }
