@@ -1,10 +1,10 @@
-=== Responsive Slider - Image Slider ===
+=== Responsive Slider - Image Slider - Slideshow for WordPress ===
 Contributors: Huge-IT
 Donate link: https://huge-it.com/slider/
-Tags: slider, wordpress slider, image slider, Photo Slider, slider plugin,
+Tags: slider, wordpress slider, image slider, responsive slider, slider plugin,
 Requires at least: 3.0.1
-Tested up to: 4.8
-Stable tag: 4.0.5
+Tested up to: 4.8.1
+Stable tag: 4.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -414,6 +414,11 @@ After installation of pro version, in General Options all your changes will be s
 If you think, that you found a bug in our [WordPress Slider](https://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 4.0.6 =
+* 1) Applied some interface changes in admin panel for better user experience
+* 2) Fixed minor bugs
+* 3) Optimized image behaviour in frontend
 
 = 4.0.5 =
 * 1) Full screen option support
