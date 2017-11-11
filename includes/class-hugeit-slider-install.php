@@ -43,6 +43,20 @@ class Hugeit_Slider_Install
             $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` CHANGE `view` `view` ENUM('none','carousel1','thumb_view') NOT NULL DEFAULT 'none'");
             $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` ADD `controls` int(1) UNSIGNED DEFAULT 1, ADD `fullscreen` int(1) UNSIGNED DEFAULT 1, ADD `vertical` int(1) UNSIGNED DEFAULT 1, ADD `thumbposition` int(1) UNSIGNED DEFAULT 0, ADD `thumbcontrols` int(1) UNSIGNED DEFAULT 0, ADD `dragdrop` int(1) UNSIGNED DEFAULT 0, ADD `swipe` int(1) UNSIGNED DEFAULT 1, ADD `thumbdragdrop` int(1) UNSIGNED DEFAULT 0, ADD `thumbswipe` int(1) UNSIGNED DEFAULT 0, ADD `titleonoff` int(1) UNSIGNED DEFAULT 1, ADD `desconoff` int(1) UNSIGNED DEFAULT 1,  ADD `titlesymbollimit` int(3) UNSIGNED DEFAULT '20',  ADD `descsymbollimit` int(3) UNSIGNED DEFAULT '70', ADD `pager` int(1) UNSIGNED DEFAULT 1, ADD `mode` enum('slide','fade') NOT NULL DEFAULT 'slide', ADD `vthumbwidth` int(3) UNSIGNED NOT NULL DEFAULT '100', ADD `hthumbheight` int(3) UNSIGNED NOT NULL DEFAULT '80', ADD `thumbitem` int(3) UNSIGNED NOT NULL DEFAULT '10', ADD `thumbmargin` int(2) UNSIGNED NOT NULL DEFAULT '5' AFTER `view`");
         }
+
+        if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slider", "thumbbgc")) {
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` ADD `thumbbgc` int(1) UNSIGNED DEFAULT 0");
+        }
+
+        if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slide", "seo_title")) {
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `seo_title` varchar(512) DEFAULT NULL AFTER `description`");
+        }
+        if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slide", "seo_alt")) {
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `seo_alt` varchar(512) DEFAULT NULL AFTER `seo_title`");
+        }
+        if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slide", "crop")) {
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `crop` enum('fit','top','center','bottom') NOT NULL DEFAULT 'center' AFTER `seo_alt`");
+        }
     }
 
     /**
@@ -136,6 +150,7 @@ class Hugeit_Slider_Install
                 fullscreen int(1) UNSIGNED DEFAULT 1,
                 vertical int(1) UNSIGNED DEFAULT 0, 
                 thumbposition int(1) UNSIGNED DEFAULT 0,
+                thumbbgc int(1) UNSIGNED DEFAULT 0,
                 thumbcontrols int(1) UNSIGNED DEFAULT 0,
                 dragdrop int(1) UNSIGNED DEFAULT 0, 
                 swipe int(1) UNSIGNED DEFAULT 1, 
@@ -161,6 +176,9 @@ class Hugeit_Slider_Install
 				`slider_id` int(11) unsigned NOT NULL,
 				`title` varchar(512) DEFAULT NULL,
 				`description` varchar(2048) DEFAULT NULL,
+				`seo_title` varchar(512) DEFAULT NULL,
+				`seo_alt` varchar(512) DEFAULT NULL,
+				`crop` enum('fit','top','center','bottom') NOT NULL DEFAULT 'center',
 				`url` varchar(2048) DEFAULT NULL,
 				`attachment_id` bigint(20) unsigned DEFAULT NULL,
 				`in_new_tab` int(1) unsigned NOT NULL DEFAULT '1',
@@ -177,7 +195,6 @@ class Hugeit_Slider_Install
 				`video_show_info` int(1) unsigned DEFAULT NULL,
 				`video_control_color` int(8) unsigned DEFAULT NULL,
 				`draft` int(1) unsigned DEFAULT NULL,
-				
 				PRIMARY KEY (`id`)
 			) {$collate}"
         );
@@ -186,7 +203,7 @@ class Hugeit_Slider_Install
     private static function set_default_options()
     {
         if (Hugeit_Slider_Options::get_crop_image() === false) {
-            Hugeit_Slider_Options::set_crop_image('stretch', __('Slider crop image', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_crop_image('fill', __('Slider crop image', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_title_color() === false) {
@@ -350,31 +367,31 @@ class Hugeit_Slider_Install
         }
 
         if (Hugeit_Slider_Options::get_share_buttons() === false) {
-            Hugeit_Slider_Options::set_share_buttons(1, __('Share buttons', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons(0, __('Share buttons', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_facebook() === false) {
-            Hugeit_Slider_Options::set_share_buttons_facebook(1, __('Facebook', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_facebook(0, __('Facebook', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_twitter() === false) {
-            Hugeit_Slider_Options::set_share_buttons_twitter(1, __('Twitter', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_twitter(0, __('Twitter', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_gp() === false) {
-            Hugeit_Slider_Options::set_share_buttons_gp(1, __('Google Plus', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_gp(0, __('Google Plus', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_pinterest() === false) {
-            Hugeit_Slider_Options::set_share_buttons_pinterest(1, __('Pinterest', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_pinterest(0, __('Pinterest', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_linkedin() === false) {
-            Hugeit_Slider_Options::set_share_buttons_linkedin(1, __('Linkedin', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_linkedin(0, __('Linkedin', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_tumblr() === false) {
-            Hugeit_Slider_Options::set_share_buttons_tumblr(1, __('Tumblr', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_tumblr(0, __('Tumblr', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_style() === false) {

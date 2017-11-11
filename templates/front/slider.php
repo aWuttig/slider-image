@@ -9,9 +9,9 @@
 ?>
 
 <div class="slider-parent"></div>
-<div class="slider_<?php echo $slider_id; ?>" <?php if ($slider->get_view() !== 'thumb_view') {
+<div class="slider_<?php echo $slider_id; ?> <?php if ($slider->get_view() !== 'thumb_view') {
     echo 'thumb_view';
-} ?>>
+} ?>" style="visibility: hidden;">
     <?php
     if ($show_loading_icon) {
         echo '<div class="slider-loader-' . $slider_id . '"></div>';
@@ -22,6 +22,7 @@
     } ?> huge-it-slider" data-autoplay="<?php echo $slider->get_video_autoplay(); ?>">
         <?php
         foreach ($slides as $key => $slide) {
+            if($slide !== false):
             $slide_type = $slides[$key]->get_type();
             $i = 0;
             switch ($slide_type) {
@@ -151,6 +152,7 @@
                     }
                     break;
             }
+            endif;
         }
         ?>
     </ul>
@@ -218,7 +220,7 @@
                         break;
                     case 'thumbnail':
                         $pager = true;
-                        $thumb = true;
+                        $thumb = false;
                         break;
                     case 'none':
                         $pager = false;
@@ -288,5 +290,9 @@
             arrows: singleSlider_<?php echo $slider_id; ?>.arrows_style,
             openCloseType: singleSlider_<?php echo $slider_id; ?>.open_close_effect
         });
+    });
+
+    jQuery(document).ready(function ($) {
+        $(".slider_<?php echo $slider_id; ?>").css("visibility","visible");
     });
 </script>

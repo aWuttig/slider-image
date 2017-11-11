@@ -5,10 +5,11 @@ a.probuttonlink {
 #view-image_frame, #view-style-block {
     position: relative;
     float: right;
-    width: 35px;
-    height: 28px;
-    padding: 0 0 0 20px;
+    width: 24px;
+    height: 27px;
+    /*padding: 0 0 0 20px;*/
     background: url(../images/admin/view.style.png) left center no-repeat;
+    background-size: contain;
 }
 
 #view-image_frame ul, #view-style-block ul {
@@ -172,12 +173,19 @@ a.probuttonlink {
 
 #slider-unique-options-list li label {
     display: inline-block;
-    width: 100px;
+    width: 120px;
     padding: 0 0 0 10px;
 }
 
-#slider-unique-options-list li input[type='text'], #slider-unique-options-list li select {
-    width: 120px;
+#slider-custom-options-list li label {
+    display: inline-block;
+    width: 130px;
+    padding: 0px;
+}
+
+#slider-unique-options-list li input[type='text'], #slider-unique-options-list li select,
+#slider-custom-options-list li input[type='text'], #slider-custom-options-list li select {
+    width: 100px;
 }
 
 #slider-shortcode-box ul li:first-child {
@@ -743,8 +751,9 @@ button.button-primary {
 }
 
 #arrows-type {
-    display: table;
+    /*display: table;*/
     margin: 0;
+    margin-top: 20px;
 }
 
 #arrows-type li {
@@ -1284,6 +1293,7 @@ li[data-type*=video] .image-block img {
     width: 80%;
     display: flex;
     align-items: end;
+    position: relative;
 }
 
 #post-body .images-list-block .slider-cell .slider-option table {
@@ -1597,4 +1607,231 @@ div.image-block {
     width: 35px;
     opacity: 0.5;
     margin-left: 5px;
+}
+
+/* right panel new style */
+
+.probuttonlink span {
+    color: #dc3227;
+    font-size: 12px;
+    border: 1px solid #dc3227;
+    padding: 0px 3px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#slider-unique-options-list li,
+#slider-custom-options-list li {
+    margin-bottom: 11px !important;
+}
+
+.slider_save_button {
+    background-color: #e14d43 !important;
+    border: 1px solid #ba281e !important;
+    color: #ffffff !important;
+}
+
+#slider_save_section {
+    padding: 10px 10px 0;
+}
+
+.slider_view_radio {
+    background-color: #e7f2fe;
+    margin: 5px 10px;
+    border: 1px solid #cadcf2;
+    padding: 11px 9px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.slider_view_radio input[type="radio"] {
+    /* hide the inputs */
+    opacity: 0;
+    position: absolute;
+}
+
+/* style your lables/button */
+.slider_view_radio input[type="radio"] + label {
+    /* keep pointer so that you get the little hand showing when you are on a button */
+    cursor: pointer;
+    /* the following are the styles */
+    padding: 4px 12px;
+    color: #80a1c4;
+}
+
+.slider_view_radio input[type="radio"]:checked + label {
+    /* style for the checked/selected state */
+    background: #4ca2ff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.32);
+    border-radius: 3px;
+    color: white;
+}
+
+#slider-unique-options-list li,
+#slider-custom-options-list li {
+    position: relative;
+}
+
+#slider-unique-options-list li span.unit,
+#slider-custom-options-list li span.unit {
+    position: absolute;
+    top: 6px;
+    right: 50px;
+    color: #777777;
+}
+
+#slider-custom-options-list li span.unit {
+    right: 40px;
+}
+
+.postbox h3 {
+    padding: 0px !important;
+}
+
+.postbox h3 a {
+    color: #333;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    background: url(../images/admin/collapse_arrows.png);
+    background-repeat: no-repeat;
+    background-position: 96% -12px;
+}
+
+.postbox h3.open a {
+    background-position: 96% 15px;
+}
+
+.postbox .inside {
+    padding: 0 5px 12px !important;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: white;
+    color: #333;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.24);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 33%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .slider_help_icon {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 0 6px;
+}
+
+.slider_disabled_label {
+    color: #ccc;
+}
+
+.slider_disabled_label .tooltip span {
+    border-color: #ccc;
+    color: #ccc;
+}
+
+.postbox-container input[type=checkbox] {
+    width: 20px !important;
+    height: 20px !important;
+    border-color: #e1e1e1 !important;
+}
+
+.postbox-container input[type=checkbox]:checked:before {
+    margin: -2px 0px 0 -4px;
+    color: #dc3227;
+    font-size: 24px;
+}
+
+/*************  single slide tabs  *************/
+.slide_tabs {
+    position: absolute;
+    top: 0;
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.slide_tabs li {
+    margin: 0px;
+}
+
+.slide_tabs a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #8c8b8b;
+}
+
+.slide_tabs .current {
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+    position: relative;
+    top: 1px;
+    background: #f5f5f5 !important;
+}
+
+.slide_tabs .current a {
+    color: #333;
+    font-weight: bold;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.slider-option .tab-content {
+    display: none;
+    margin-top: 35px;
+}
+
+.slider-option .active-tab {
+    display: block;
+}
+
+.slide_disabled_tab {
+    position: absolute;
+    width: 100%;
+    height: 61%;
+    background: rgba(249, 249, 249, 0.4);
+}
+
+.slide_tabs li a span {
+    border: 1px solid #dc3227;
+    border-radius: 4px;
+    margin-left: 5px;
+    color: #dc3227;
+    font-size: 11px;
+    padding-right: 2px;
 }

@@ -72,7 +72,7 @@ $license = array(
             </div>
             <p><?php echo $val["text"]; ?></p>
             <div class="col-footer">
-                <a href="https://huge-it.com/slider/" class="a-upgrate">Upgrade</a>
+                <a href="https://huge-it.com/slider/" target="_blank" class="a-upgrate">Upgrade</a>
             </div>
         </div>
     <?php } ?>
