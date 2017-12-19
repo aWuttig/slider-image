@@ -24,7 +24,7 @@
         <li class="current"><a href="#tab-1-<?php echo $id; ?>"><?php _e('General', 'hugeit-slider'); ?></a>
         </li>
         <li><a href="#tab-2-<?php echo $id; ?>"><?php _e('SEO', 'hugeit-slider'); ?><span> Pro </span></a></li>
-        <li><a href="#tab-3-<?php echo $id; ?>"><?php _e('Crop', 'hugeit-slider'); ?><span> Pro </span></a>
+        <li><a href="#tab-3-<?php echo $id; ?>"><?php _e('Image Behaviour', 'hugeit-slider'); ?><span> Pro </span></a>
         </li>
     </ul>
     <div class="tab">
@@ -88,13 +88,16 @@
                 </tr>
             </table>
         </div>
-        <div id="tab-3-<?php echo $id; ?>" class="tab-content">
+        <div id="tab-3-<?php echo $id; ?>" class="tab-content tab_for_standart">
             <div class="slide_disabled_tab"></div>
             <select name="crop_<?php echo $id; ?>" class="crop">
                 <option value="top" <?php if ($crop == "top") echo "selected"; ?>><?php _e('Top', 'hugeit-slider'); ?></option>
                 <option value="center" <?php if ($crop == "center") echo "selected"; ?>><?php _e('Center', 'hugeit-slider'); ?></option>
                 <option value="bottom" <?php if ($crop == "bottom") echo "selected"; ?>><?php _e('Bottom', 'hugeit-slider'); ?></option>
             </select>
+            <p style="display:none;"
+               class="available_msg"><?php _e("This option available for Standart view", "hugeit-slider") ?></p>
+
         </div>
     </div>
 </div>

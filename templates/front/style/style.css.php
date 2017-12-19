@@ -4238,6 +4238,11 @@ div[class*=slider-loader-] {
 <?php } ?>
 
 <?php if($slider->get_view() == 'carousel1'){ ?>
+.rwd-SlideOuter{
+    height:auto !important;
+    margin-bottom:15px;
+}
+
 .rwd-SlideOuter .huge_it_slider {
     margin-top: 10px;
     overflow: initial;

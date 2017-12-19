@@ -162,9 +162,7 @@
                                            value="<?php echo $slider->get_width(); ?>" class="text_area"/>
                                     <span class="unit">px</span>
                                 </li>
-                                <li style="<?php if ($slider->get_view() == 'carousel1') {
-                                    echo 'display: none;';
-                                } ?>" class="standart_view_display ">
+                                <li class="standart_view_display ">
 
                                     <label for="height"><?php _e('Height', 'hugeit-slider'); ?>
                                         <div class="tooltip"><span class="slider_help_icon">?</span>
@@ -320,6 +318,8 @@
                                     } ?></span><?php _e('Slider Options', 'hugeit-slider'); ?></span></h3>
                         <div class="inside">
                             <ul id="slider-custom-options-list">
+
+
                                 <li style="<?php if ($slider->get_view() != 'thumb_view') {
                                     echo 'display: none;';
                                 } ?>" class="thumb_view_display">
@@ -364,6 +364,19 @@
                                     </label>
                                     <input type="checkbox" name="controls" value="1" id="controls" disabled/>
                                     <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
+                                </li>
+                                <li style="<?php if ($slider->get_view() != 'thumb_view') {
+                                    echo 'display: none;';
+                                } ?>" class="thumb_view_display">
+                                    <label for="pager"
+                                           class="slider_disabled_label"><?php _e('Thumbnails', 'hugeit-slider'); ?>
+                                        <div class="tooltip"><span class="slider_help_icon">?</span>
+                                            <span class="tooltiptext"><?php _e('Choose thumbnail position', 'hugeit-slider'); ?></span>
+                                        </div>
+                                    </label>
+                                    <input type="checkbox" name="pager" value="1"
+                                           id="pager"
+                                           disabled <?php if ($slider->get_pager() == '1') echo 'checked="checked"'; ?> />
                                 </li>
                                 <li style="<?php if ($slider->get_view() != 'thumb_view') {
                                     echo 'display: none;';

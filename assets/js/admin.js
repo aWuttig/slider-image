@@ -3,11 +3,11 @@ jQuery(window).load(function () {
         jQuery('.thumb_view_display').css('display', 'block');
     }
 
-    if (jQuery('#vertical').attr('checked') === 'checked') {
-        jQuery('#hthumbheight').parent().css('display', 'none');
-    } else {
-        jQuery('#vthumbwidth').parent().css('display', 'none');
-    }
+    /* if (jQuery('#vertical').attr('checked') === 'checked') {
+         jQuery('#hthumbheight').parent().css('display', 'none');
+     } else {
+         jQuery('#vthumbwidth').parent().css('display', 'none');
+     }*/
 
 
     if (jQuery('#vertical').attr('checked') === 'checked') {
@@ -17,7 +17,7 @@ jQuery(window).load(function () {
         jQuery('#descsymbollimit').parent().css('display', 'none');
     } else {
         if (jQuery('#slider-unique-options-list select[name*="view"]').val() === 'thumb_view') {
-           // jQuery('#height').parent().css('display', 'none');
+            // jQuery('#height').parent().css('display', 'none');
         }
     }
 
@@ -46,6 +46,19 @@ function setTab(att_id) {
 };
 
 jQuery(document).ready(function () {
+
+    var cur_view = jQuery('.slider_view_radio input[name*="view"]:checked').val(),
+        view_array = ["carousel1", "thumb_view"];
+
+    if (jQuery.inArray(cur_view, view_array) !== -1) {
+        jQuery(".tab_for_standart select, .tab_for_standart  label").css("visibility", "hidden");
+        jQuery(".tab_for_standart .available_msg").show();
+    }
+    else {
+        jQuery(".tab_for_standart select, .tab_for_standart  label").css("visibility", "visible");
+        jQuery(".tab_for_standart .available_msg").hide();
+    }
+
     jQuery('#view-image_frame ul li[data-id="' + jQuery('#arrows_style option[selected="selected"]').val() + '"]').addClass('active');
 
     jQuery('#arrows_style').change(function () {
@@ -66,6 +79,8 @@ jQuery(document).ready(function () {
                 jQuery('#video_autoplay').parent().css('display', 'block');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
                 jQuery("#cur_view_name").html("Standart ");
+                jQuery(".tab_for_standart select, .tab_for_standart  label").css("visibility", "visible");
+                jQuery(".tab_for_standart .available_msg").hide();
                 break;
             case 'carousel1':
                 jQuery('.standart_view_display').css('display', 'none');
@@ -76,6 +91,8 @@ jQuery(document).ready(function () {
                 jQuery('#video_autoplay').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
                 jQuery("#cur_view_name").html("Carousel ");
+                jQuery(".tab_for_standart select, .tab_for_standart  label").css("visibility", "hidden");
+                jQuery(".tab_for_standart .available_msg").show();
                 break;
             case 'thumb_view':
                 jQuery('.standart_view_display').css('display', 'block');
@@ -86,6 +103,8 @@ jQuery(document).ready(function () {
                 jQuery('#video_autoplay').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
                 jQuery("#cur_view_name").html("Thumbnail ");
+                jQuery(".tab_for_standart select, .tab_for_standart  label").css("visibility", "hidden");
+                jQuery(".tab_for_standart .available_msg").show();
                 break;
         }
     });
@@ -97,9 +116,9 @@ jQuery(document).ready(function () {
         } else {
             jQuery('#vertical').parent().css('display', 'block');
             if (jQuery('#vertical').attr('checked') === 'checked') {
-                jQuery('#height').parent().css('display', 'block');
+                // jQuery('#height').parent().css('display', 'block');
             } else {
-               // jQuery('#height').parent().css('display', 'none');
+                // jQuery('#height').parent().css('display', 'none');
             }
         }
     });
@@ -108,7 +127,7 @@ jQuery(document).ready(function () {
         if (jQuery(this).attr('checked') === 'checked') {
             jQuery('#thumbposition option').eq(0).text('Right');
             jQuery('#thumbposition option').eq(1).text('Left');
-            jQuery('#height').parent().css('display', 'block');
+            //jQuery('#height').parent().css('display', 'block');
             jQuery('#titlesymbollimit').parent().css('display', 'none');
             jQuery('#descsymbollimit').parent().css('display', 'none');
             jQuery('#vthumbwidth').parent().css('display', 'block');
@@ -116,7 +135,7 @@ jQuery(document).ready(function () {
         } else {
             jQuery('#thumbposition option').eq(0).text('Bottom');
             jQuery('#thumbposition option').eq(1).text('Top');
-            jQuery('#height').parent().css('display', 'none');
+            // jQuery('#height').parent().css('display', 'none');
             jQuery('#titlesymbollimit').parent().css('display', 'block');
             jQuery('#descsymbollimit').parent().css('display', 'block');
             jQuery('#vthumbwidth').parent().css('display', 'none');

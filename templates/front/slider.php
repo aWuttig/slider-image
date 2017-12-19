@@ -22,136 +22,136 @@
     } ?> huge-it-slider" data-autoplay="<?php echo $slider->get_video_autoplay(); ?>">
         <?php
         foreach ($slides as $key => $slide) {
-            if($slide !== false):
-            $slide_type = $slides[$key]->get_type();
-            $i = 0;
-            switch ($slide_type) {
-                case 'image': ?>
-                    <li class="group"
-                        data-thumb="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
-                        data-title="<?php echo $slides[$key]->get_title(); ?>"
-                        data-description="<?php echo $slides[$key]->get_description(); ?>">
-                        <?php if ($slider->get_lightbox()) { ?>
-                            <a href="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>">
-                                <img src="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
-                                     alt="<?php echo $slides[$key]->get_title(); ?>"/>
-                            </a>
-                        <?php } else {
-                            if ($slides[$key]->get_url()) {
-                                $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
-                                echo '<a href="' . $slides[$key]->get_url() . '" target="' . $target . '">';
-                            } ?>
-                            <img src="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
-                                 alt="<?php echo $slides[$key]->get_title(); ?>"/>
-                            <?php if ($slides[$key]->get_url()) {
-                                echo '</a>';
-                            }
-                        } ?>
-
-                        <?php if ($slider->get_lightbox()) {
-                            if ($slider->get_view() === 'none' && $slides[$key]->get_title()) {
+            if ($slide !== false):
+                $slide_type = $slides[$key]->get_type();
+                $i = 0;
+                switch ($slide_type) {
+                    case 'image': ?>
+                        <li class="group"
+                            data-thumb="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
+                            data-title="<?php echo $slides[$key]->get_title(); ?>"
+                            data-description="<?php echo $slides[$key]->get_description(); ?>">
+                            <?php if ($slider->get_lightbox()) { ?>
+                                <a href="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>">
+                                    <img src="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
+                                         alt="<?php echo $slides[$key]->get_title(); ?>"/>
+                                </a>
+                            <?php } else {
                                 if ($slides[$key]->get_url()) {
                                     $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
-                                    echo '<a href="' . $slides[$key]->get_url() . '" class="title_url" target="' . $target . '">';
+                                    echo '<a href="' . $slides[$key]->get_url() . '" target="' . $target . '">';
                                 } ?>
-                                <div class="huge-it-caption slider-title">
-                                    <div><?php echo $slides[$key]->get_title(); ?></div>
-                                </div>
+                                <img src="<?php echo wp_get_attachment_url($slides[$key]->get_attachment_id()); ?>"
+                                     alt="<?php echo $slides[$key]->get_title(); ?>"/>
                                 <?php if ($slides[$key]->get_url()) {
                                     echo '</a>';
                                 }
-                            }
-                        } else {
-                            if ($slider->get_view() === 'none' && $slides[$key]->get_title()) { ?>
-                                <div class="huge-it-caption slider-title">
-                                    <div><?php echo $slides[$key]->get_title(); ?></div>
-                                </div>
-                            <?php }
-                        } ?>
+                            } ?>
 
-                        <?php if ($slider->get_view() === 'none' && $slides[$key]->get_description()) { ?>
-                            <div class="huge-it-caption slider-description">
-                                <div><?php echo $slides[$key]->get_description(); ?></div>
-                            </div>
-                        <?php } ?>
-                    </li>
-                    <?php
-                    break;
-                case 'post':
-                    $args = array(
-                        'numberposts' => $slides[$key]->get_max_post_count(),
-                        'offset' => 0,
-                        'category' => $slides[$key]->get_term_id(),
-                        'orderby' => 'post_date',
-                        'order' => 'DESC',
-                        'post_type' => 'post',
-                        'post_status' => 'publish, future, pending, private',
-                        'suppress_filters' => true);
-                    $posts = wp_get_recent_posts($args, ARRAY_A);
-                    foreach ($posts as $_key => $last_posts) {
-                        $imagethumb = wp_get_attachment_image_src(get_post_thumbnail_id($last_posts["ID"]), 'thumbnail-size', true);
-                        if (get_post_thumbnail_id($last_posts["ID"])) {
-                            ?>
-                            <li class="group"
-                                data-thumb="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
-                                    echo $imagethumb[0];
-                                }; ?>"
-                                data-title="<?php echo $slides[$key]->get_title(); ?>"
-                                data-description="<?php echo wp_strip_all_tags($last_posts["post_excerpt"]); ?>">
-                                <?php if ($slider->get_lightbox()) { ?>
-                                    <a href="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
+                            <?php if ($slider->get_lightbox()) {
+                                if ($slider->get_view() === 'none' && $slides[$key]->get_title()) {
+                                    if ($slides[$key]->get_url()) {
+                                        $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
+                                        echo '<a href="' . $slides[$key]->get_url() . '" class="title_url" target="' . $target . '">';
+                                    } ?>
+                                    <div class="huge-it-caption slider-title">
+                                        <div><?php echo $slides[$key]->get_title(); ?></div>
+                                    </div>
+                                    <?php if ($slides[$key]->get_url()) {
+                                        echo '</a>';
+                                    }
+                                }
+                            } else {
+                                if ($slider->get_view() === 'none' && $slides[$key]->get_title()) { ?>
+                                    <div class="huge-it-caption slider-title">
+                                        <div><?php echo $slides[$key]->get_title(); ?></div>
+                                    </div>
+                                <?php }
+                            } ?>
+
+                            <?php if ($slider->get_view() === 'none' && $slides[$key]->get_description()) { ?>
+                                <div class="huge-it-caption slider-description">
+                                    <div><?php echo $slides[$key]->get_description(); ?></div>
+                                </div>
+                            <?php } ?>
+                        </li>
+                        <?php
+                        break;
+                    case 'post':
+                        $args = array(
+                            'numberposts' => $slides[$key]->get_max_post_count(),
+                            'offset' => 0,
+                            'category' => $slides[$key]->get_term_id(),
+                            'orderby' => 'post_date',
+                            'order' => 'DESC',
+                            'post_type' => 'post',
+                            'post_status' => 'publish, future, pending, private',
+                            'suppress_filters' => true);
+                        $posts = wp_get_recent_posts($args, ARRAY_A);
+                        foreach ($posts as $_key => $last_posts) {
+                            $imagethumb = wp_get_attachment_image_src(get_post_thumbnail_id($last_posts["ID"]), 'thumbnail-size', true);
+                            if (get_post_thumbnail_id($last_posts["ID"])) {
+                                ?>
+                                <li class="group"
+                                    data-thumb="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
                                         echo $imagethumb[0];
-                                    }; ?>">
+                                    }; ?>"
+                                    data-title="<?php echo $slides[$key]->get_title(); ?>"
+                                    data-description="<?php echo wp_strip_all_tags($last_posts["post_excerpt"]); ?>">
+                                    <?php if ($slider->get_lightbox()) { ?>
+                                        <a href="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
+                                            echo $imagethumb[0];
+                                        }; ?>">
+                                            <img src="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
+                                                echo $imagethumb[0];
+                                            }; ?>" alt="<?php echo $last_posts["post_title"]; ?>"/>
+                                        </a>
+                                    <?php } else {
+                                        if ($last_posts["guid"]) {
+                                            $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
+                                            echo '<a href="' . $last_posts["guid"] . '" target="' . $target . '">';
+                                        } ?>
                                         <img src="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
                                             echo $imagethumb[0];
                                         }; ?>" alt="<?php echo $last_posts["post_title"]; ?>"/>
-                                    </a>
-                                <?php } else {
-                                    if ($last_posts["guid"]) {
-                                        $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
-                                        echo '<a href="' . $last_posts["guid"] . '" target="' . $target . '">';
-                                    } ?>
-                                    <img src="<?php if (get_the_post_thumbnail($last_posts["ID"], 'thumbnail')) {
-                                        echo $imagethumb[0];
-                                    }; ?>" alt="<?php echo $last_posts["post_title"]; ?>"/>
-                                    <?php if ($last_posts["guid"]) {
-                                        echo '</a>';
-                                    }
-                                } ?>
-
-                                <?php if ($slider->get_lightbox()) {
-                                    if ($slider->get_view() === 'none' && $last_posts["post_title"]) {
-                                        if ($last_posts["guid"]) {
-                                            $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
-                                            echo '<a href="' . $last_posts["guid"] . '" class="title_url" target="' . $target . '">';
-                                        } ?>
-                                        <div class="huge-it-caption slider-title">
-                                            <div><?php echo $last_posts["post_title"]; ?></div>
-                                        </div>
                                         <?php if ($last_posts["guid"]) {
                                             echo '</a>';
                                         }
-                                    }
-                                } else {
-                                    if ($slider->get_view() === 'none' && $last_posts["post_title"]) { ?>
-                                        <div class="huge-it-caption slider-title">
-                                            <div><?php echo $last_posts["post_title"]; ?></div>
-                                        </div>
-                                    <?php }
-                                } ?>
+                                    } ?>
 
-                                <?php if ($slider->get_view() === 'none' && wp_strip_all_tags($last_posts["post_excerpt"])) { ?>
-                                    <div class="huge-it-caption slider-description">
-                                        <div><?php echo wp_strip_all_tags($last_posts["post_excerpt"]); ?></div>
-                                    </div>
-                                <?php } ?>
-                            </li>
-                            <?php
+                                    <?php if ($slider->get_lightbox()) {
+                                        if ($slider->get_view() === 'none' && $last_posts["post_title"]) {
+                                            if ($last_posts["guid"]) {
+                                                $target = ($slides[$key]->get_in_new_tab()) ? "_blank" : "";
+                                                echo '<a href="' . $last_posts["guid"] . '" class="title_url" target="' . $target . '">';
+                                            } ?>
+                                            <div class="huge-it-caption slider-title">
+                                                <div><?php echo $last_posts["post_title"]; ?></div>
+                                            </div>
+                                            <?php if ($last_posts["guid"]) {
+                                                echo '</a>';
+                                            }
+                                        }
+                                    } else {
+                                        if ($slider->get_view() === 'none' && $last_posts["post_title"]) { ?>
+                                            <div class="huge-it-caption slider-title">
+                                                <div><?php echo $last_posts["post_title"]; ?></div>
+                                            </div>
+                                        <?php }
+                                    } ?>
+
+                                    <?php if ($slider->get_view() === 'none' && wp_strip_all_tags($last_posts["post_excerpt"])) { ?>
+                                        <div class="huge-it-caption slider-description">
+                                            <div><?php echo wp_strip_all_tags($last_posts["post_excerpt"]); ?></div>
+                                        </div>
+                                    <?php } ?>
+                                </li>
+                                <?php
+                            }
+                            $i++;
                         }
-                        $i++;
-                    }
-                    break;
-            }
+                        break;
+                }
             endif;
         }
         ?>
@@ -293,6 +293,6 @@
     });
 
     jQuery(document).ready(function ($) {
-        $(".slider_<?php echo $slider_id; ?>").css("visibility","visible");
+        $(".slider_<?php echo $slider_id; ?>").css("visibility", "visible");
     });
 </script>

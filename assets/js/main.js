@@ -2408,6 +2408,7 @@
                     forward = (slideNum > this.currentPlace);
                 }
 
+
                 switch (this.settings.controls) {
                     case 'dot':
                         this.$dotWrapLinks.eq(this.currentPlace).removeClass('active');
@@ -2428,6 +2429,7 @@
                 if (jQuery('li.group').eq(this.currentPlace - 1).hasClass('video_iframe') || jQuery('li.group').eq(this.currentPlace).hasClass('video_iframe')) {
                     var streffect = this.settings.transition;
                     if (streffect == "cube_v" || streffect == "cube_h" || streffect == "none" || streffect == "fade") {
+
                         new Transition(this, this.settings.transition, forward);
                     } else {
                         new Transition(this, 'fade', forward);

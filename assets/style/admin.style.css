@@ -1,5 +1,7 @@
 a.probuttonlink {
     color: white;
+    position: absolute;
+    right: 0;
 }
 
 #view-image_frame, #view-style-block {
@@ -175,12 +177,14 @@ a.probuttonlink {
     display: inline-block;
     width: 120px;
     padding: 0 0 0 10px;
+    position: relative;
 }
 
 #slider-custom-options-list li label {
     display: inline-block;
     width: 130px;
     padding: 0px;
+    position: relative;
 }
 
 #slider-unique-options-list li input[type='text'], #slider-unique-options-list li select,
@@ -1713,6 +1717,8 @@ div.image-block {
 .tooltip {
     position: relative;
     display: inline-block;
+    position: absolute;
+    right: 0;
 }
 
 .tooltip .tooltiptext {
