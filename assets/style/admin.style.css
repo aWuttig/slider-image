@@ -1402,6 +1402,10 @@ tr[data-site*=youtube] td:nth-child(2) {
     margin-left: 10px;
 }
 
+#post-body .images-list-block .slider-cell .slider-option table tr td select.caption-align {
+    margin-left: 0;
+}
+
 #post-body .images-list-block .slider-cell .slider-option table tr td input[type="range"] {
     -webkit-appearance: none;
 }

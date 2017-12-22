@@ -64,6 +64,16 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <label><?php _e('Alignment: ', 'hugeit-slider'); ?></label>
+                        <select class="caption-align" name="caption_align_<?php echo $id; ?>">
+                            <option value="left" <?php if ($caption_align == "left") echo "selected"; ?>><?php _e('Left', 'hugeit-slider'); ?></option>
+                            <option value="center" <?php if ($caption_align == "center") echo "selected"; ?>><?php _e('Center', 'hugeit-slider'); ?></option>
+                            <option value="top" <?php if ($caption_align == "top") echo "selected"; ?>><?php _e('Right', 'hugeit-slider'); ?></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td colspan="2"><a href="#" class="remove-image"><?php _e('Remove Image', 'hugeit-slider'); ?></a>
                     </td>
                 </tr>

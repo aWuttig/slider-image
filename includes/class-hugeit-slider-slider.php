@@ -312,7 +312,6 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 
 				foreach ( $slider as $slider_option_name => $slider_option_value ) {
 					$function_name = 'set_' . $slider_option_name;
-
 					if (method_exists($this, $function_name)) {
 						try {
 							call_user_func( array( $this, $function_name ), $slider_option_value );

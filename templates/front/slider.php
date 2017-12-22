@@ -63,14 +63,14 @@
                                 }
                             } else {
                                 if ($slider->get_view() === 'none' && $slides[$key]->get_title()) { ?>
-                                    <div class="huge-it-caption slider-title">
+                                    <div class="huge-it-caption slider-title align-<?php echo $slides[$key]->get_caption_align(); ?>">
                                         <div><?php echo $slides[$key]->get_title(); ?></div>
                                     </div>
                                 <?php }
                             } ?>
 
                             <?php if ($slider->get_view() === 'none' && $slides[$key]->get_description()) { ?>
-                                <div class="huge-it-caption slider-description">
+                                <div class="huge-it-caption slider-description align-<?php echo $slides[$key]->get_caption_align(); ?>">
                                     <div><?php echo $slides[$key]->get_description(); ?></div>
                                 </div>
                             <?php } ?>

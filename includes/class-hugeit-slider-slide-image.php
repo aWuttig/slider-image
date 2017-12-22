@@ -27,6 +27,13 @@ final class Hugeit_Slider_Slide_Image extends Hugeit_Slider_Slide implements Hug
 	 */
 	private $url;
 
+    /**
+     * Slide caption alignment.
+     *
+     * @var string
+     */
+    private $caption_align;
+
 	/**
 	 * Slide image attachment id.
 	 *
@@ -142,6 +149,22 @@ final class Hugeit_Slider_Slide_Image extends Hugeit_Slider_Slide implements Hug
 
 		throw new Exception('Invalid value for "url" field.');
 	}
+
+    /**
+     * @return string
+     */
+    public function get_caption_align() {
+        return $this->caption_align;
+    }
+
+    /**
+     * @param string $caption_align
+     *
+     * @return Hugeit_Slider_Slide_Image
+     */
+    public function set_caption_align( $caption_align ) {
+        $this->caption_align = $caption_align;
+    }
 
 	/**
 	 * @return int

@@ -62,6 +62,7 @@ class Hugeit_Slider_Html_Loader {
 		$title = $slide->get_title() ? $slide->get_title() : '';
 		$description = $slide->get_description() ? $slide->get_description() : '';
 		$url = $slide->get_url() ? $slide->get_url() : '';
+        $caption_align = $slide->get_caption_align() ? $slide->get_caption_align() : '';
 		$src = $slide->get_attachment_id() === NULL ? $attachment['sizes']['thumbnail']['url'] : wp_get_attachment_url($slide->get_attachment_id());
 		$attachment_id = $slide->get_attachment_id() === NULL ? $attachment['id'] : $slide->get_attachment_id();
 		$in_new_tab = (bool)$slide->get_in_new_tab();
@@ -70,6 +71,7 @@ class Hugeit_Slider_Html_Loader {
 			'id' => $id,
 			'title' => $title,
 			'description' => $description,
+			'caption_align' => $caption_align,
 			'url' => $url,
 			'src' => $src,
 			'attachment_id' => $attachment_id,
