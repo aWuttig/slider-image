@@ -2130,17 +2130,6 @@ if($slider->get_navigate_by() == 'thumbnail'){ ?> border-bottom: <?php echo Huge
     padding: 10px 20px;
     line-height: normal;
 }
-.huge-it-caption.align-left div {
-    text-align: left;
-}
-
-.huge-it-caption.align-center div {
-    text-align: center;
-}
-
-.huge-it-caption.align-right div {
-    text-align: right;
-}
 
 .slider-title {
 <?php if(Hugeit_Slider_Options::get_title_has_margin() === 1){

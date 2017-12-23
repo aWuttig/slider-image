@@ -321,6 +321,7 @@ jQuery(document).ready(function () {
                         url: $li.find('input.url').val(),
                         in_new_tab: $li.find('input.in-new-tab').prop('checked') ? 1 : 0,
                         attachment_id: $li.find('input.attachment-id').val(),
+                        caption_align: $li.find('select option:selected').val(),
                     };
 
                     break;

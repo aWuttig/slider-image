@@ -58,7 +58,7 @@ class Hugeit_Slider_Install
             $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `crop` enum('fit','top','center','bottom') NOT NULL DEFAULT 'center' AFTER `seo_alt`");
         }
         if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slide", "caption_align")) {
-            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `caption_align` enum('left','center','right') NOT NULL DEFAULT 'left' AFTER `crop`");
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `caption_align` enum('left-top', 'left-middle', 'left-bottom', 'center-top','center-middle', 'center-bottom', 'right-top', 'right-middle', 'right-bottom') NOT NULL DEFAULT 'left-top' AFTER `crop`");
         }
     }
 

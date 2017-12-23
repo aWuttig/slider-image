@@ -117,6 +117,7 @@ class Hugeit_Slider_Sliders {
 	}
 
 	public function save_slider($slider_id, $slider_data, $slides) {
+
 		$slider = new Hugeit_Slider_Slider($slider_id);
 
 		foreach ( $slider_data as $property_name => $property_value ) {

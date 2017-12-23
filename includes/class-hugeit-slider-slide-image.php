@@ -219,6 +219,7 @@ final class Hugeit_Slider_Slide_Image extends Hugeit_Slider_Slide implements Hug
 		$this->set_if_not_null('url', $this->url, $slide_data);
 		$this->set_if_not_null('attachment_id', $this->attachment_id, $slide_data);
 		$this->set_if_not_null('in_new_tab', $this->in_new_tab, $slide_data);
+		$this->set_if_not_null('caption_align', $this->caption_align, $slide_data);
 		$this->set_if_not_null('type', $this->type, $slide_data);
 		$this->set_if_not_null('order', $this->order, $slide_data);
 //		$this->set_if_not_null('draft', $this->is_draft, $slide_data);

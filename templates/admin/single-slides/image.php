@@ -67,9 +67,15 @@
                     <td>
                         <label><?php _e('Alignment: ', 'hugeit-slider'); ?></label>
                         <select class="caption-align" name="caption_align_<?php echo $id; ?>">
-                            <option value="left" <?php if ($caption_align == "left") echo "selected"; ?>><?php _e('Left', 'hugeit-slider'); ?></option>
-                            <option value="center" <?php if ($caption_align == "center") echo "selected"; ?>><?php _e('Center', 'hugeit-slider'); ?></option>
-                            <option value="top" <?php if ($caption_align == "top") echo "selected"; ?>><?php _e('Right', 'hugeit-slider'); ?></option>
+                            <option value="left-top" <?php if ($caption_align == "left-top") echo "selected"; ?>><?php _e('Left Top', 'hugeit-slider'); ?></option>
+                            <option value="left-middle" <?php if ($caption_align == "left-middle") echo "selected"; ?>><?php _e('Left Middle', 'hugeit-slider'); ?></option>
+                            <option value="left-bottom" <?php if ($caption_align == "left-bottom") echo "selected"; ?>><?php _e('Left Bottom', 'hugeit-slider'); ?></option>
+                            <option value="center-top" <?php if ($caption_align == "center-top") echo "selected"; ?>><?php _e('Center Top', 'hugeit-slider'); ?></option>
+                            <option value="center-middle" <?php if ($caption_align == "center-middle") echo "selected"; ?>><?php _e('Center Middle', 'hugeit-slider'); ?></option>
+                            <option value="center-bottom" <?php if ($caption_align == "center-bottom") echo "selected"; ?>><?php _e('Center Bottom', 'hugeit-slider'); ?></option>
+                            <option value="right-top" <?php if ($caption_align == "right-top") echo "selected"; ?>><?php _e('Right Top', 'hugeit-slider'); ?></option>
+                            <option value="right-middle" <?php if ($caption_align == "right-middle") echo "selected"; ?>><?php _e('Right Middle', 'hugeit-slider'); ?></option>
+                            <option value="right-bottom" <?php if ($caption_align == "right-bottom") echo "selected"; ?>><?php _e('Right Bottom', 'hugeit-slider'); ?></option>
                         </select>
                     </td>
                 </tr>
